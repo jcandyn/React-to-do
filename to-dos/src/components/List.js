@@ -18,12 +18,31 @@ class List extends React.Component {
     constructor() {
         super()
         this.state = {
-            todos: todosData
+            todos: todosData,
+            // completed: todosData.completed
+           
         }
+        this.handleClick = this.handleClick.bind(this)
     }
+
+    handleClick(id) {
+        this.setState(prevState => {
+            if (prevState.todos.completed === true)
+            return {
+                completed: false
+            }
+            else if (prevState.todos.completed === false) {
+                return {
+                    completed: true
+                }
+            }
+        })
+        console.log("Changed", id)
+    }
+
     render() {
         const todoComponents = this.state.todos.map(
-            todo => <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />)
+            item => <TodoItem key={item.id} text={item.text} completed={item.completed} item={item} handleClick={this.handleClick}/>)
         return (
              <div className="to-doList">
                     {todoComponents}
