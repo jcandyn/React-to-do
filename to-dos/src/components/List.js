@@ -27,17 +27,17 @@ class List extends React.Component {
 
     handleClick(id) {
         this.setState(prevState => {
-            if (prevState.todos.completed === true)
-            return {
-                completed: false
-            }
-            else if (prevState.todos.completed === false) {
-                return {
-                    completed: true
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
                 }
+                return todo
+            })
+            return {
+                todos: updatedTodos
             }
         })
-        console.log("Changed", id)
+        // console.log("Changed", id)
     }
 
     render() {
