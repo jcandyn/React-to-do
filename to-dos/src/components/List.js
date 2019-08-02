@@ -14,14 +14,15 @@ import todosData from "./todoData.js"
 // }
 
 class List extends React.Component {
-    // super()
-    // constructor() {
-    //     this.state = {
-    //         completed: true
-    //     }
-    // }
+
+    constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+    }
     render() {
-        const todoComponents = todosData.map(
+        const todoComponents = this.state.todos.map(
             todo => <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />)
         return (
              <div className="to-doList">
