@@ -66,3 +66,7 @@ input[type=checkbox]:focus {
 
 /* 70 width for to-item on phone */
 /* 50 width for to-list on phone */
+
+main {
+  height: 800px;;
+}
