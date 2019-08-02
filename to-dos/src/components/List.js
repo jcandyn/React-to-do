@@ -1,16 +1,13 @@
 import React from "react"
+import TodoItem from "./TodoItem"
+import todosData from "./todoData.js"
+// import { tsPropertySignature } from "@babel/types";
 
 
 function List() {
-    return <div>
-            <input type="checkbox"></input>
-            <p>Take out trash</p>
-            <input type="checkbox"></input>
-            <p>Learn React</p>
-            <input type="checkbox"></input>
-            <p>Watch fun show</p>
-            <input type="checkbox"></input>
-            <p>Drink Water</p>
+    const todoComponents = todosData.map(todo => <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />)
+    return <div className="to-doList">
+            {todoComponents}
             </div>
 }
 
